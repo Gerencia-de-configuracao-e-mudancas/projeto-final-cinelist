@@ -41,13 +41,15 @@ nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
-
 .search-bar input {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #9E86FF;
     border-radius: 5px;
     color: #fff;
     padding: 8px;
+    width: 200px;
+    margin-left: 20px; /* Adiciona espaço à esquerda */
+    margin-right: 20px; /* Adiciona espaço à direita */
 }
 
 /* Conteúdo Principal */
