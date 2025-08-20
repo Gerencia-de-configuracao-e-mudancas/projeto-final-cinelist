@@ -149,6 +149,99 @@ footer {
     border-top: 1px solid #333;
 }
 
+/* --- ESTILOS ADICIONAIS PARA A PÁGINA DE DETALHES --- */
+
+/* Ajusta o container principal para alinhar a capa e as informações */
+.movie-details-container {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
+    justify-content: center; /* Centraliza o conteúdo */
+    gap: 40px; /* Espaço entre a capa e as informações */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.movie-poster img {
+    border-radius: 10px;
+    width: 300px; /* Largura fixa para o poster */
+    height: auto;
+}
+
+.movie-info {
+    flex: 1; /* Permite que o bloco de informações cresça */
+    min-width: 300px; /* Largura mínima para o bloco de informações */
+}
+
+/* Container para a avaliação e onde assistir */
+.interactive-section {
+    display: flex;
+    flex-direction: column; /* Organiza as seções uma abaixo da outra */
+    gap: 20px; /* Espaço entre a avaliação e o "Onde Assistir" */
+    margin-bottom: 25px; /* Espaço antes da sinopse */
+}
+
+.rating-section h3, .watch-section h3 {
+    margin: 0 0 10px 0;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Estilo das Estrelas */
+.stars {
+    font-size: 28px; /* Tamanho dos ícones de estrela */
+    color: #444; /* Cor das estrelas inativas (cinza escuro) */
+    cursor: pointer;
+}
+
+.stars i:hover,
+.stars i.hover {
+    color: #ffdd00; /* Cor ao passar o mouse (amarelo) */
+}
+
+/* Faz com que as estrelas anteriores também mudem de cor no hover */
+.stars:hover i:hover ~ i {
+    color: #444;
+}
+.stars.rated i {
+    color: #444;
+}
+
+.stars.rated i.active {
+    color: #ffc107; /* Cor da avaliação final (amarelo mais forte) */
+}
+
+/* Seção Onde Assistir */
+.streaming-logos {
+    display: flex;
+    gap: 15px; /* Espaço entre os logos */
+    align-items: center;
+}
+
+.streaming-logos img {
+    width: 90px; /* Largura dos logos */
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.8;
+}
+
+.streaming-logos img:hover {
+    transform: scale(1.08); /* Aumenta o tamanho no hover */
+    opacity: 1;
+}
+
+/* Ajustes para o botão de download */
+.download-button {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.download-button img {
+    width: 160px;
+    height: auto;
+}
+
 @media (max-width: 600px) {
     header {
         flex-direction: column;
