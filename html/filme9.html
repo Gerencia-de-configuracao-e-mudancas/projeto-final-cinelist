@@ -1,10 +1,10 @@
-filme1.html
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Título do Filme 1 - Detalhes</title>
+    <title>Oppenheimer</title>
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../css/allfilms.css">
 </head>
 <body>
@@ -28,17 +28,41 @@ filme1.html
     <main>
         <div class="movie-details-container">
             <div class="movie-poster">
-                <img src="https://via.placeholder.com/300x450" alt="Capa do Filme 1">
+                <img src="/midia/series/How_i_met_your_mother/How_i_met_your_mother.webp" alt="Capa do Filme 1">
             </div>
             <div class="movie-info">
-                <h1>Título do Filme 1</h1>
+                <h1>How i met your mother</h1>
+       <div class="interactive-section">
+                    <div class="rating-section">
+                        <h3>Avalie o filme:</h3>
+                        <div class="stars" data-rating="0">
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                            <i class="fa-solid fa-star"></i>
+                        </div>
+                    </div>
+
+                    <div class="watch-section">
+                        <h3>Onde Assistir:</h3>
+                        <div class="streaming-logos">
+                            <a href="#" title="Disponível no Prime Video" target="_blank">
+                                <img src="/midia/Prime_Video_logo_(2024).svg" alt="Logo Prime Video">
+                            </a>
+                            <a href="#" title="Disponível na Netflix" target="_blank">
+                                <img src="/midia/Netflix_2015_logo.svg" alt="Logo Netflix">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
                 <h2>Sinopse</h2>
                 <p>
-                    Aqui você coloca a sinopse completa do filme. Pode ser um texto longo descrevendo a história, os personagens e os principais eventos do enredo. Continue escrevendo para preencher este espaço e dar uma boa ideia do que se trata o filme.
-                </p>
+Ted Mosby decide contar aos filhos como conheceu a mãe deles, mas a história se estende por anos, envolvendo sua vida amorosa, seus melhores amigos e inúmeras situações hilárias. A série mistura romance, comédia e momentos marcantes sobre amizade, amor e destino.                </p>
                 
                 <a href="/caminho/para/seu/filme1.mp4" class="download-button" download>
-                    Baixar Filme
+                    <img src="/midia/download.png" alt="baixar filme">
                 </a>
             </div>
         </div>
@@ -47,5 +71,7 @@ filme1.html
     <footer>
         <p>&copy; 2025 CineList. Todos os direitos reservados.</p>
     </footer>
+
+    <script src="../js/estrelas.js"></script>
 </body>
 </html>
