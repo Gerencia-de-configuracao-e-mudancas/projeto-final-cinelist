@@ -1,0 +1,27 @@
+/* css/pages.css */
+
+main.page-content {
+    padding-top: 100px; /* Espaço para o header fixo */
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.page-title {
+    font-size: 42px;
+    margin-bottom: 30px;
+    border-left: 4px solid #9E86FF;
+    padding-left: 15px;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    main.page-content {
+        padding-top: 150px; /* Aumenta o espaço por causa do header que quebra a linha */
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+}
