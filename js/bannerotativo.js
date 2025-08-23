@@ -5,14 +5,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const featuredMovies = [
         {
             title: 'Oppenheimer',
-            link: 'html/filme1.html',
-            poster: 'midia/filmes dos populares/Oppenheimer/teste1.jpg',
+            link: 'html/filmes/filme1.html',
+            poster: 'midia/filmes dos populares/Oppenheimer/oppenlargaa.webp',
             background: 'black'
         },
         {
             title: 'Blade Runner 2049',
-            link: 'html/filme2.html',
-            poster: 'midia/filmes dos populares/Bladerunner2049/blade-runner-larga.jpg',
+            link: 'html/filmes/filme2.html',
+            poster: 'midia/filmes dos populares/Bladerunner2049/bladerunnerlarga.jpg',
+            background: 'black'
+        },
+        {
+            title: 'Ilha do Medo',
+            link: 'html/filmes/ilhadomedo.html',
+            poster: 'midia/filmes/ilha do medo/ilhamedolarga.webp',
+            background: 'black'
+        },
+        {
+            title: 'Tropa de Elite',
+            link: 'html/filmes/filme5.html',
+            poster: 'midia/filmes dos populares/Tropa_de_elite/tropaelitelarga.jpg',
+            background: 'black'
+        },
+        {
+            title: 'Fallen Angels',
+            link: 'html/filmes/filme3.html',
+            poster: 'midia/filmes dos populares/Fallen_Angels/fallenangelslarga.webp',
             background: 'black'
         }
     ];
@@ -72,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Limpa qualquer intervalo anterior para evitar múltiplos timers
         clearInterval(autoPlayInterval);
         // Inicia o auto-play a cada 10 segundos (10000 milissegundos)
-        autoPlayInterval = setInterval(showNextSlide, 10000);
+        autoPlayInterval = setInterval(showNextSlide, 5200);
     }
 
     // --- 6. EVENT LISTENERS PARA OS BOTÕES ---
