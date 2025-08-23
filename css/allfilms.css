@@ -1,28 +1,57 @@
-/* Estilos Gerais */
+/* ==========================================================================
+   1. Estilos Gerais e Mobile First (Base para todas as telas)
+   ========================================================================== */
+
 body {
     background-color: #030328;
     color: #fff;
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
+    box-sizing: border-box;
 }
 
-/* Cabeçalho */
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin-top: 0;
+}
+
+/* ==========================================================================
+   2. Cabeçalho (Header)
+   ========================================================================== */
+
 header {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 20px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
+    flex-wrap: wrap;
 }
 
 .logo h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 22px;
     color: #9E86FF;
+}
+
+/* Navegação - Melhorada */
+nav {
+    width: 100%;
+    order: 3;
+    margin-top: 15px;
 }
 
 nav ul {
@@ -30,60 +59,87 @@ nav ul {
     margin: 0;
     padding: 0;
     display: flex;
-}
-
-nav ul li {
-    margin: 0 15px;
+    justify-content: center;
+    gap: 15px;
 }
 
 nav ul li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
+    padding: 5px 0;
+    position: relative;
+    transition: color 0.3s ease;
 }
+
+/* Efeito de sublinhado no hover */
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #9E86FF;
+    bottom: 0;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+
+nav ul li a:hover {
+    color: #9E86FF;
+}
+
+nav ul li a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Barra de Busca */
+.search-bar {
+    order: 2;
+}
+
 .search-bar input {
     background-color: rgba(255, 255, 255, 0.1);
     border: 1px solid #9E86FF;
     border-radius: 5px;
     color: #fff;
     padding: 8px;
-    width: 200px;
-    margin-left: 20px; /* Adiciona espaço à esquerda */
-    margin-right: 20px; /* Adiciona espaço à direita */
+    width: 150px;
 }
 
-/* Conteúdo Principal */
+/* ==========================================================================
+   3. Conteúdo Principal (Main)
+   ========================================================================== */
+
 main {
-    padding-top: 80px; /* Para não ficar atrás do cabeçalho */
+    padding-top: 140px; /* Espaço para o header no mobile */
 }
 
-/* Seção de Destaque (Hero) */
+/* --- Seção de Destaque (Hero) --- */
 .hero {
-    background-image: url('https://via.placeholder.com/1200x500'); /* Imagem de fundo do destaque */
+    height: 50vh;
+    min-height: 400px;
     background-size: cover;
     background-position: center;
-    height: 500px;
+    position: relative;
     display: flex;
     align-items: center;
-    padding: 0 40px;
+    justify-content: center;
+    padding: 20px;
 }
 
 .hero-content {
     background-color: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
+    text-align: center;
 }
 
 .hero-content h2 {
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 28px;
+    margin-bottom: 15px;
 }
 
-.hero-content p {
-    font-size: 18px;
-    max-width: 600px;
-}
-
+/* Botões genéricos */
 button {
     background-color: #9E86FF;
     color: #fff;
@@ -93,70 +149,71 @@ button {
     font-size: 16px;
     cursor: pointer;
     margin-right: 10px;
+    transition: transform 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
 }
 
 button.secondary {
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Catálogo e Carrossel */
+/* --- Catálogos (Populares, Séries, etc) --- */
 .catalog {
-    padding: 20px 40px;
+    padding: 20px;
 }
 
 .catalog h2 {
-    font-size: 28px;
+    font-size: 24px;
     border-left: 4px solid #9E86FF;
     padding-left: 10px;
+    margin-bottom: 20px;
 }
 
 .carousel {
     display: flex;
-    overflow-x: auto; /* Permite rolar horizontalmente */
-    padding-bottom: 20px; /* Espaço para a barra de rolagem */
+    overflow-x: auto;
+    padding-bottom: 20px;
+    gap: 15px;
 }
 
-.carousel::-webkit-scrollbar {
-    height: 8px;
-}
-
-.carousel::-webkit-scrollbar-thumb {
-    background: #9E86FF;
-    border-radius: 4px;
-}
+/* Esconde a barra de rolagem mas mantém a funcionalidade */
+.carousel::-webkit-scrollbar { display: none; }
+.carousel { -ms-overflow-style: none; scrollbar-width: none; }
 
 .carousel-item {
-    margin-right: 20px;
     text-align: center;
+    flex-shrink: 0;
 }
 
 .carousel-item img {
-    width: 200px;
-    height: 300px;
+    width: 150px;
+    height: 225px;
     object-fit: cover;
     border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.05);
 }
 
 .carousel-item h3 {
+    font-size: 16px;
     margin-top: 10px;
 }
 
-/* Rodapé */
-footer {
-    text-align: center;
-    padding: 20px;
-    margin-top: 40px;
-    border-top: 1px solid #333;
-}
+/* ==========================================================================
+   4. Página de Detalhes do Filme/Série
+   ========================================================================== */
 
-/* --- ESTILOS ADICIONAIS PARA A PÁGINA DE DETALHES --- */
-
-/* Ajusta o container principal para alinhar a capa e as informações */
 .movie-details-container {
     display: flex;
-    flex-wrap: wrap; /* Permite que os itens quebrem para a linha de baixo em telas pequenas */
-    justify-content: center; /* Centraliza o conteúdo */
-    gap: 40px; /* Espaço entre a capa e as informações */
+    flex-direction: column; /* Mobile: Poster em cima, infos embaixo */
+    align-items: center;
+    gap: 30px;
     padding: 20px;
     max-width: 1200px;
     margin: 0 auto;
@@ -164,62 +221,68 @@ footer {
 
 .movie-poster img {
     border-radius: 10px;
-    width: 300px; /* Largura fixa para o poster */
+    width: 70vw;
+    max-width: 300px;
     height: auto;
 }
 
 .movie-info {
-    flex: 1; /* Permite que o bloco de informações cresça */
-    min-width: 300px; /* Largura mínima para o bloco de informações */
+    width: 100%;
 }
 
-/* Container para a avaliação e onde assistir */
+.movie-info h1 {
+    font-size: 28px;
+    margin-bottom: 15px;
+}
+
+.movie-info p {
+    line-height: 1.6;
+    color: #ccc;
+}
+
 .interactive-section {
     display: flex;
-    flex-direction: column; /* Organiza as seções uma abaixo da outra */
-    gap: 20px; /* Espaço entre a avaliação e o "Onde Assistir" */
-    margin-bottom: 25px; /* Espaço antes da sinopse */
+    flex-direction: column;
+    gap: 25px;
+    margin-bottom: 25px;
 }
 
 .rating-section h3, .watch-section h3 {
     margin: 0 0 10px 0;
-    font-size: 18px;
-    color: #ffffff;
+    font-size: 20px;
 }
 
 /* Estilo das Estrelas */
 .stars {
-    font-size: 28px; /* Tamanho dos ícones de estrela */
-    color: #444; /* Cor das estrelas inativas (cinza escuro) */
+    font-size: 28px;
+    color: #444;
     cursor: pointer;
+    user-select: none;
 }
 
 .stars i:hover,
 .stars i.hover {
-    color: #ffdd00; /* Cor ao passar o mouse (amarelo) */
+    color: #ffdd00;
 }
 
-/* Faz com que as estrelas anteriores também mudem de cor no hover */
 .stars:hover i:hover ~ i {
-    color: #444;
-}
-.stars.rated i {
     color: #444;
 }
 
 .stars.rated i.active {
-    color: #ffc107; /* Cor da avaliação final (amarelo mais forte) */
+    color: #ffc107;
 }
 
 /* Seção Onde Assistir */
 .streaming-logos {
     display: flex;
-    gap: 15px; /* Espaço entre os logos */
+    flex-wrap: wrap;
+    gap: 15px;
     align-items: center;
 }
 
 .streaming-logos img {
-    width: 90px; /* Largura dos logos */
+    width: 80px;
     height: auto;
     border-radius: 8px;
     transition: transform 0.2s ease, opacity 0.2s ease;
@@ -227,11 +290,11 @@ footer {
 }
 
 .streaming-logos img:hover {
-    transform: scale(1.08); /* Aumenta o tamanho no hover */
+    transform: scale(1.08);
     opacity: 1;
 }
 
-/* Ajustes para o botão de download */
+/* Botão de download */
 .download-button {
     display: inline-block;
     margin-top: 20px;
@@ -242,79 +305,76 @@ footer {
     height: auto;
 }
 
-@media (max-width: 600px) {
-    header {
-        flex-direction: column;
-        padding: 10px 20px;
-    }
-    .hero {
-        height: 200px;
-        padding: 0 10px;
-    }
-    .hero-content h2 {
-        font-size: 24px;
-    }
-    .catalog {
-        padding: 10px;
-    }
-    .carousel-item img {
-        width: 100px;
-        height: 150px;
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    nav ul li {
-        margin: 5px 0;
-    }
-    .search-bar input {
-        width: 120px;
-        margin-left: 0;
-        margin-right: 0;
-    }
+/* ==========================================================================
+   5. Rodapé (Footer)
+   ========================================================================== */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
 }
 
-@media (min-width: 601px) and (max-width: 1200px) {
-    .hero {
-        height: 350px;
-        padding: 0 20px;
+/* ==========================================================================
+   6. Responsividade (Telas Maiores - Tablets e Desktops)
+   ========================================================================== */
+
+/* --- Estilos para Tablets (768px ou mais) --- */
+@media (min-width: 768px) {
+    header {
+        padding: 20px 40px;
+        flex-wrap: nowrap;
     }
-    .hero-content h2 {
+
+    nav { width: auto; order: 2; margin-top: 0; }
+    .search-bar { order: 3; }
+    .search-bar input { width: 200px; }
+    
+    main { padding-top: 85px; }
+
+    .hero { height: 70vh; min-height: 500px; }
+    .hero-content h2 { font-size: 42px; }
+
+    .catalog { padding: 30px 40px; }
+    .carousel-item img { width: 180px; height: 270px; }
+
+    /* Página de Detalhes - Tablet */
+    .movie-details-container {
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
+    }
+    
+    .movie-poster {
+        flex-shrink: 0;
+    }
+    
+    .movie-poster img {
+        width: 300px;
+    }
+
+    .movie-info h1 {
         font-size: 36px;
     }
-    .catalog {
-        padding: 15px 20px;
-    }
-    .carousel-item img {
-        width: 160px;
-        height: 240px;
-    }
-    .search-bar input {
-        width: 160px;
-        margin-left: 10px;
-        margin-right: 10px;
-    }
+
+    .streaming-logos img { width: 90px; }
 }
 
-@media (min-width: 1201px) {
-    .hero {
-        height: 600px;
-        padding: 0 80px;
+/* --- Estilos para Desktops (1200px ou mais) --- */
+@media (min-width: 1200px) {
+    .hero { height: 600px; }
+    .hero-content h2 { font-size: 54px; }
+    
+    .catalog { padding: 40px 80px; }
+    .carousel-item img { width: 220px; height: 330px; }
+
+    /* Página de Detalhes - Desktop */
+    .movie-details-container {
+        gap: 50px;
     }
-    .hero-content h2 {
-        font-size: 64px;
-    }
-    .catalog {
-        padding: 40px 80px;
-    }
-    .carousel-item img {
-        width: 240px;
-        height: 360px;
-    }
-    .search-bar input {
-        width: 240px;
-        margin-left: 20px;
-        margin-right: 20px;
+
+    .movie-info h1 {
+        font-size: 42px;
     }
 }
