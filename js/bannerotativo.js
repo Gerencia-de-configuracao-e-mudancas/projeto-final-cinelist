@@ -6,20 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             title: 'Oppenheimer',
             link: 'html/filme1.html',
-            poster: 'midia/filmes dos populares/Oppenheimer/oppenlarga.jpg',
-            background: 'black' // Você precisa ter essa imagem
+            poster: 'midia/filmes dos populares/Oppenheimer/teste1.jpg',
+            background: 'black'
         },
         {
             title: 'Blade Runner 2049',
             link: 'html/filme2.html',
             poster: 'midia/filmes dos populares/Bladerunner2049/blade-runner-larga.jpg',
-            background: 'black' // Você precisa ter essa imagem
-        },
-        {
-            title: 'Tropa de Elite',
-            link: 'html/filme5.html',
-            poster: 'midia/filmes dos populares/Tropa_de_elite/tropa-de-elite.jpg',
-            background: 'midia/filmes em destaques/Tropa_de_elite/tropa_de_elite_background.jpg' // Você precisa ter essa imagem
+            background: 'black'
         }
     ];
 
@@ -59,7 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // Adiciona um efeito de fade in
             heroContent.style.opacity = 1;
 
-        }, 500); // Espera a transição de fade out terminar
+        }, 350); // Espera a transição de fade out terminar
     }
 
     // --- 4. FUNÇÕES DE NAVEGAÇÃO ---
